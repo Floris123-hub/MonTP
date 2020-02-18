@@ -36,7 +36,7 @@ export class DetailsUserPage implements OnInit {
       this.gender = response.gender;
     });
   }
-  goToUserList() {
+  UserDetail() {
     this.nvc.navigateRoot('user-list' );
   }
 

@@ -16,15 +16,15 @@ export class UserListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllUser();
+    this.getUsers();
   }
 
-  getAllUser() {
+  getUsers() {
     this.apiService.getUser().subscribe(response => {
       this.UserData = response;
     });
   }
-  goToUserDetails(id) {
+  UserDetail(id) {
     this.nvc.navigateRoot('details-user/' + id );
   }
 }

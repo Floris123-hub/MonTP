@@ -7,7 +7,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let index of UserData" (click)="goToUserDetails(index.id)">
+    <ion-item *ngFor="let index of UserData" (click)="UserDetail(index.id)">
       <ion-avatar slot="start">
         <img src="{{index.picture.large}}">
       </ion-avatar>

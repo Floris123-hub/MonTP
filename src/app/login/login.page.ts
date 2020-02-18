@@ -8,24 +8,23 @@ import {NavController} from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  UserData: any;
-  userByInput: string;
+  user: any;
+  username: string;
   error: string;
-  passwordByInput: string;
+  password: string;
   find;
   constructor(private apiService: ApiService, private nvc: NavController) {
-    this.UserData = [];
+    this.user = [];
   }
 
   ngOnInit() {
     this.nvc.navigateRoot('login');
   }
-  getAllUser() {
+  getUsers() {
     this.apiService.getUser().subscribe(response => {
-      this.UserData = response;
-      for (const studentsDataKey in this.UserData) {
-        // tslint:disable-next-line:max-line-length
-        if (this.UserData[studentsDataKey].login.username === this.userByInput && this.UserData[studentsDataKey].login.password === this.passwordByInput) {
+      this.user = response;
+      for (const studentsDataKey in this.user) {
+        if (this.user[studentsDataKey].login.username === this.username && this.user[studentsDataKey].login.password === this.password) {
           this.find = true;
           break;
         } else {
